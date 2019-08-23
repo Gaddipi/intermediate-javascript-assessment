@@ -13,8 +13,14 @@
 // return the result of your updateAnimal invocation
 
 // CODE HERE...
-
-
+let callBinding = function(magicAnimals, updateAnimal, id) {
+  return updateAnimal.call(
+    magicAnimals.filter(x => {
+      return x.id === id;
+    })[0],
+    "Trogdor"
+  );
+};
 
 // *************
 // * PROBLEM 2 *
@@ -28,8 +34,14 @@
 // return the result of your updateAnimal invocation
 
 // CODE HERE...
-
-
+let applyBinding = function(magicAnimals, updateAnimal, id) {
+  return updateAnimal.apply(
+    magicAnimals.filter(x => {
+      return x.id === id;
+    })[0],
+    ["being majestic", "eating rainbows"]
+  );
+};
 
 // *************
 // * PROBLEM 3 *
@@ -48,8 +60,13 @@
 var foo;
 
 // CODE HERE...
-
-
+let promiseMe = function($q) {
+  let delay = $q.defer();
+  setTimeout(function() {
+    delay.resolve((foo = "bar"));
+  }, 20);
+  return delay.promise;
+};
 
 // *************
 // * PROBLEM 4 *
